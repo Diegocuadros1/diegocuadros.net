@@ -8,7 +8,7 @@ const {
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -76,6 +76,13 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+
+      animationDelay: {
+        '1200': '1200ms',
+        '1500': '1500ms',
+        '1700': '1700ms',
+      },
+      
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -89,6 +96,16 @@ const config = {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        'scale-in-center': {
+          '0%': {
+            transform: 'scale(0)',
+            opacity: 1,
+          },
+          '100%': {
+            transform: 'scale(1)',
+            opacity: 1,
+          },
         },
         spotlight: {
           "0%": {
@@ -150,6 +167,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scale-in-center": "scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         shimmer: "shimmer 2s linear infinite",
         first: "moveVertical 30s ease infinite",
