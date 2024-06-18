@@ -5,6 +5,10 @@ import { gridItems } from '@/data'
 const Homegrid = () => {
   return (
     <section id='about'>
+      <div className='flex justify-center items-center'>
+        <h1 className="text-white p-10 lg:text-base">About <span className="text-purple">Me</span></h1>
+      </div>
+
       <BentoGrid>
         {gridItems.map((item) => (
           <BentoGridItem 
