@@ -1,10 +1,14 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import { BentoGrid, BentoGridItem } from './ui/BentoGrid'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { gridItems } from '@/data'
+import Modal from './items/GridItems'
 
 
 const Homegrid = () => {
+
   return (
     <section id='about'>
       <div className='flex justify-center items-center'>
@@ -13,6 +17,7 @@ const Homegrid = () => {
 
       <BentoGrid>
         {gridItems.map((item) => (
+          
             <BentoGridItem
               id={item.id}
               key={item.id}
@@ -23,8 +28,9 @@ const Homegrid = () => {
               imgClassName={item.imgClassName}
               titleClassName={item.titleClassName}
               spareImg={item.spareImg}
+              
             />
-        ))}
+        ))} 
       </BentoGrid>
     </section>
   )

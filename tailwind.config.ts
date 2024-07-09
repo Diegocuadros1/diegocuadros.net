@@ -26,6 +26,12 @@ const config = {
       },
     },
     extend: {
+      width: {
+        'clamp-50-700-90': 'clamp(50%, 700px, 90%)',
+      },
+      height: {
+        'min-50-300': 'min(50%, 300px)',
+      },
       colors: {
         black: {
           DEFAULT: "#000",

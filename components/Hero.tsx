@@ -66,7 +66,7 @@ const Hero = () => {
               <div className="w-full md:w-auto flex justify-center md:justify-start">
                 <Image
                   className="border-white mr-24 border-r-8 "
-                  src={"/me.png"}
+                  src={"/me.svg"}
                   alt="me"
                   width={200}
                   height={200}
