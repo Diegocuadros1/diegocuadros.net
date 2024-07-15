@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { BentoGrid, BentoGridItem } from './ui/BentoGrid'
 import { AnimatePresence } from 'framer-motion'
 import { gridItems } from '@/data'
-import Modal from './items/GridItems'
+import Modal from './items/Modals'
 
 
 const Homegrid = () => {

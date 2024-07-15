@@ -6,13 +6,17 @@ import { cn } from "@/utils/cn";
 export const TextGenerateEffect = ({
   words,
   className,
+  speed = "slow"
 }: {
   words: string;
   className?: string;
+  speed?: "fast" | "slow";
 }) => {
   const [scope, animate] = useAnimate();
   let wordsArray = words.split(" ");
   useEffect(() => {
+    const delayValue = speed === "fast" ? 0.05 : 0.2;
+
     animate(
       "span",
       {
@@ -20,7 +24,7 @@ export const TextGenerateEffect = ({
       },
       {
         duration: 2,
-        delay: stagger(0.2),
+        delay: stagger(delayValue),
       }
     );
   }, [scope.current]);

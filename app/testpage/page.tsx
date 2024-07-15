@@ -1,40 +1,77 @@
 "use client"
 import Modal from '@/components/items/GridItems';
-import { motion, AnimatePresence } from 'framer-motion'
-import React, { useState } from 'react'
+import { motion, AnimatePresence, easeOut, useAnimate, useAnimation } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
 
 
 const page = () => {
-  
-  const [modalOn, setModalOn] = useState(false);
+  const lineVariantsVertical = {
+    hidden: { width: 0 },
+    visible: { 
+      width: '100%',
+      transition: { 
+        duration: 2,
+        ease: "easeOut"
+      }
+    }
+  };
 
-  const open = () => setModalOn(true)
-  const close = () => setModalOn(false)
+  const lineVariantsHorizontal = {
+    hidden: {height: 0},
+    visible: {
+      height: '100px',
+      transition: {
+        duration: 1,
+        ease: "easeOut"
+      }
+    }
+  };
 
+  const controlsVertical = useAnimation()
+  const controlsHorizontal = useAnimation()
+
+  useEffect(() => {
+    const sequence = async () => {
+      await controlsVertical.start("visible")
+      await controlsHorizontal.start("visible")
+    };
+
+    sequence()
+  }, [controlsVertical, controlsHorizontal]);
 
   return (
-    <div className="w-100% h-100% p-10 flex justify-center items-center">
-      <div className='flex justify-center items-center'>
-        <motion.div
-          whileHover={{scale: 1.1}}
-          whileTap={{scale: 0.9}}
-          className='w-96 h-56 bg-white-100 border-white text-white flex items-center justify-center' 
-          onClick={()=> (modalOn ? close(): open())}
-          >
-            <div className='text-black-100'>
-              This is a Test
-            </div>
-        </motion.div>
-
-        <AnimatePresence
-          initial={false}
-          onExitComplete={() => null}
-        >
-          {modalOn && <Modal modalOn={modalOn} handleClose={close} id={12}/>}
-        </AnimatePresence>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className='text-black-100'>Hello</h1>
+      <motion.div
+        className="h-0.5 bg-blue-500"
+        initial="hidden"
+        animate={controlsVertical}
+        variants={lineVariantsVertical}
+      />
+      <div className='w-full flex flex-row justify-between'>
+        <div className='text-black'>
+          Hello World
+        </div>
+        <motion.div 
+          className='w-0.5 bg-blue-500'
+          initial="hidden"
+          animate={controlsHorizontal}
+          variants={lineVariantsHorizontal}
+        />
+        <div className='text-black'>
+          Hello World 2nd
+        </div>
+        <motion.div 
+          className='w-0.5 bg-blue-500'
+          initial="hidden"
+          animate={controlsHorizontal}
+          variants={lineVariantsHorizontal}
+        />
+        <div className='text-black'>
+          Hello World 3rd
+        </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
 export default page

@@ -8,12 +8,12 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "Investing in tomorrow's technology today unlocks boundless potential",
     description: "",
-    className: "lg:col-span-4 lg:min-h-60vh md:col-span-2 md:row-span-4 flex justify-start items-start cursor-pointer",
-    imgClassName: "w-full h-full object-cover object-center relative",
+    className: "lg:col-span-4 lg:min-h-60vh md:col-span-2 md:row-span-4 flex cursor-pointer",
+    imgClassName: "absolute bottom-3 right-4 w-full",
     titleClassName: "justify-end",
-    img: "/about_house.png",
+    img: "/about-1.png",
     spareImg: "",
   },
   {

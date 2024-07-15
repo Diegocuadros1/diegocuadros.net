@@ -30,7 +30,7 @@ const config = {
         'clamp-50-700-90': 'clamp(50%, 700px, 90%)',
       },
       height: {
-        'min-50-300': 'min(50%, 300px)',
+        'min-50-300': 'min(90%, 500px)',
       },
       colors: {
         black: {
@@ -169,6 +169,10 @@ const config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        'scroll-vertical': {
+          '0%': { transform: 'translateY(0%)' },
+          '100%': { transform: 'translateY(-50%)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -181,6 +185,7 @@ const config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
+        'scroll-vertical': 'scroll-vertical var(--animation-duration) linear infinite var(--animation-direction)',
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
