@@ -1,10 +1,8 @@
 "use client"
 
-import React, { useState } from 'react'
+import React from 'react'
 import { BentoGrid, BentoGridItem } from './ui/BentoGrid'
-import { AnimatePresence } from 'framer-motion'
 import { gridItems } from '@/data'
-import Modal from './items/Modals'
 
 
 const Homegrid = () => {
@@ -12,10 +10,11 @@ const Homegrid = () => {
   return (
     <section id='about'>
       <div className='flex justify-center items-center'>
-        <h1 className="text-white p-10 lg:text-base">About <span className="text-purple">Me</span></h1>
+        <h1 className="text-white font-bold text-[40px] md:text-[50px] p-10 z-50">About <span className="text-purple">Me</span></h1>
       </div>
-
+      
       <BentoGrid>
+        
         {gridItems.map((item) => (
           
             <BentoGridItem
