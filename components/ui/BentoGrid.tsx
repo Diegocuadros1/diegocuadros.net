@@ -3,7 +3,7 @@
 import { cn } from "@/utils/cn";
 import {AnimatePresence, motion} from 'framer-motion'
 import { useState } from "react";
-import Modal from "../items/Modals";
+import Modal from "../items/ModalsAbout";
 
 export const BentoGrid = ({
   className,
@@ -49,14 +49,12 @@ export const BentoGridItem = ({
 
 
   const open = (id) => {
-    console.log(`opening item for id ${id}`);
     setSelectedId(id);
     setModalOn(true);
   };
 
 
   const close = () => {
-    console.log(`closing item`);
     setSelectedId(null);
     setModalOn(false);
   };

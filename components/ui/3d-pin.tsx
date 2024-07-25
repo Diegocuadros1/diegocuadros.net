@@ -29,7 +29,7 @@ export const PinContainer = ({
   };
 
   return (
-    <Link
+    <div
       className={cn(
         "relative group/pin z-50  cursor-pointer",
         containerClassName
@@ -55,7 +55,7 @@ export const PinContainer = ({
         </div>
       </div>
       <PinPerspective title={title} href={href} />
-    </Link>
+    </div>
   );
 };
 

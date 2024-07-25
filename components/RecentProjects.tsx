@@ -1,21 +1,50 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import {projects} from '@/data'
 import { PinContainer } from './ui/3d-pin'
 import { FaLocationArrow } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
+import Modal from './items/ModalsProjects'
+import Link from 'next/link'
+
 
 const RecentProjects = () => {
+  const [modalOn, setModalOn] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+
+
+  const open = (id) => {
+    console.log(`opening item for id ${id}`);
+    setSelectedId(id);
+    setModalOn(true);
+  };
+
+  const close = () => {
+    console.log(`closing item`);
+    setSelectedId(null);
+    setModalOn(false);
+  };
+
+  const filteredProjects = projects.filter(project => project.id >= 1 && project.id <= 4).slice(0, 4);
+
   return (
-    <div className='py-20'>
-      <h1 className='heading'>
+    <>
+    <div className='py-5'>
+      <h1 className='heading mt-10'>
         A small selection of {' '}
         <span className='text-purple'>recent projects</span>
       </h1>
-      <div className='flex flex-wrap items-center justify-center p-4 gap-16 mt-10'>
-        {projects.map(({ id, title, des, img, iconLists, link}) => (
-          <div key={id} className='lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]'>
+      <div className='flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10'>
+        {filteredProjects.map(({ id, title, des, img, iconLists, link}) => (
+          <div 
+            key={id} 
+            className='h-[32rem] sm:h-[41rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]'
+            onClick={()=> (modalOn ? close(): open(id))}
+          >
             <PinContainer title={link} href={link}>
 
-              <div className='relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10'>
+              <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10'>
                 <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]'>
                   <img src="/bg.png" alt="bg-img" />
                 </div>
@@ -38,7 +67,6 @@ const RecentProjects = () => {
                       className='border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center'
                       style={{transform:`translateX(-${5 * index * 2}px)`}}
                     >
-                      
                       <img src={icon} alt={icon} className='p-2' />
                     </div>
                   ))}
@@ -55,6 +83,30 @@ const RecentProjects = () => {
         ))}
       </div>
     </div>
+    <AnimatePresence
+      initial={false}
+      onExitComplete={() => null}
+    >
+      {modalOn && selectedId && (
+        <Modal modalOn={modalOn} handleClose={close} id={selectedId} />
+      )}
+    </AnimatePresence>
+    <div className='flex w-full justify-end'>
+      <Link href={"/projects"}>
+        <motion.div 
+          className='flex flex-row'
+          whileHover={{
+            scale: 1.1, 
+            textShadow: "0px 0px 8px rgb(255,255,255)", 
+            transition: 0.5,
+          }}
+        >
+          <h1 className='text-[20px] text-purple font-semibold'>View More Projects Here</h1>
+          <FaLocationArrow className='ml-3 text-purple mt-2'/>
+        </motion.div>
+      </Link>
+    </div>
+    </>
   )
 }
 

@@ -82,7 +82,7 @@ const Hero = () => {
               className="text-center text-small md:tracking-wider mb-4 md:text-large lg:text-2xl p-10 pb-0"
               words="Turning dreams into reality through programming and business"
             />
-            <a href="#about" className="">
+            <a href="#about">
               <MagicButton 
                 title="Get to know me"
                 icon={<FaLocationArrow />}
