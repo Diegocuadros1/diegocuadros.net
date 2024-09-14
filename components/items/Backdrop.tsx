@@ -1,19 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-
-const Backdrop = ({children, onClick}) => {
+const Backdrop = ({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick: () => void;
+}) => {
   return (
     <motion.div
-      className='fixed top-0 left-0 h-full w-full bg-black-100 bg-opacity-50 flex items-center justify-center z-50'
+      className="fixed top-0 left-0 h-full w-full bg-black-100 bg-opacity-50 flex items-center justify-center z-50"
       onClick={onClick}
-      initial={{ opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       {children}
     </motion.div>
   );
 };
 
-export default Backdrop
+export default Backdrop;

@@ -1,7 +1,8 @@
 export const navItems = [
+  { name: "Home", link: "/" },
   { name: "Projects", link: "/projects" },
-  { name: "Web Development", link: "/webdev" },
-  { name: "Airbnb Cohosting", link: "/cohost" },
+  { name: "Web Dev", link: "/webdevelopment" },
+  { name: "Cohosting", link: "/cohost" },
 ];
 
 export const gridItems = [
@@ -12,7 +13,7 @@ export const gridItems = [
     className: "lg:col-span-4 lg:min-h-60vh md:col-span-2 md:row-span-4 flex cursor-pointer",
     imgClassName: "absolute bottom-3 right-4 w-full",
     titleClassName: "justify-end",
-    img: "/about-1.png",
+    img: "/about-1.svg",
     spareImg: "",
   },
   {
@@ -48,12 +49,12 @@ export const gridItems = [
   },
   {
     id: 5,
-    title: "Learn All About me and Where I come from",
+    title: "Learn All About Me",
     description: "My History",
     className: "md:col-span-2 md:row-span-2 lg:col-span-4 cursor-pointer",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-center",
-    img: "about_me.png",
+    img: "/about-me.svg",
     spareImg: "/grid.svg",
   },
 ];
@@ -61,114 +62,92 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
+    title: "Crystal Clear Solutions",
+    des: "Window Cleaning company based in Long Beach California.",
+    img: "/ccs.svg",
+    iconLists: ["/re.svg", "/next.svg", "/tail.svg", "framer.svg",],
+    link: "crystalclearsolutions.co",
+   
+  },
+  {
+    id: 2,
     title: "Cuadconnect",
     des: "Connect with your classmates to share and discuss problems from the class.",
     img: "/p1.svg",
     iconLists: ["/re.svg", "/ex.svg", "/mongo.svg", "/redux.svg", "/node.svg"],
     link: "Cuadconnect",
-  },
-  {
-    id: 2,
-    title: "Crystal Clear Solutions",
-    des: "Window Cleaning company based in Long Beach California.",
-    img: "/ccs.svg",
-    iconLists: ["/re.svg", "/ex.svg", "/node.svg"],
-    link: "crystalclearsolutions.co",
+    
   },
   {
     id: 3,
+    title: "Cuadocs",
+    des: "Google Docs clone with authentication.",
+    img: "/cuadocs.png",
+    iconLists: ["/re.svg", "/next.svg", "tail.svg"],
+    link: "Cuadocs",
+  },
+  {
+    id: 4,
     title: "My Money Buddy Financial Budgeting",
     des: "Financial Budgeting App that is made to create a system where people can write their expenses and have a system to be able to finance their money",
     img: "/mmb.svg",
     iconLists: ["/flask.svg", "/py.svg", "/html.svg", "/css.svg"],
     link: "MyMoneyBuddy",
+    
   },
   {
-    id: 4,
+    id: 5,
     title: "Short Video Language Bot",
     des: "Created a bot to create short-form minute long videos with questions that would challenge people's language learning skills, to be able to learn a new language",
     img: "/p4.svg",
     iconLists: ["/py.svg"],
     link: "ShortFormVideo",
+    details: {
+      title: "Short-Form Language Bot",
+      subTitle: "Created a bot to create short form trivia videos for people on the internet to learn new languages",
+      description: "Created a bot using Python libraries such as Pillow, Moviepy, and others to create a self edited video where words are translated, created into multiple choice A, B, C, and D, and then concatinated into a minute long video using artificial speech with Eleven Labs API so that people on social media platforms can find an interest in learning other languages. This project has taught me the best way to be able to problem solve is to always keep trying and that eventually problems will be resolved one way or another, we just have to continue trying and when working in programming there is almost always a solution or a program to fix a problem, it just needs to be created tailored to your own specific needs.",
+      img: "/videobot.svg",
+      links: [
+        { title: "View Github", link: "https://github.com/Diegocuadros1/Social_media_video_bot" },
+      ]
+    }
   },
 ];
 
 
-export const companies = [
-  {
-    id: 1,
-    name: "cloudinary",
-    img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
-  },
-  {
-    id: 2,
-    name: "appwrite",
-    img: "/app.svg",
-    nameImg: "/appName.svg",
-  },
-  {
-    id: 3,
-    name: "HOSTINGER",
-    img: "/host.svg",
-    nameImg: "/hostName.svg",
-  },
-  {
-    id: 4,
-    name: "stream",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
-  },
-  {
-    id: 5,
-    name: "docker.",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
-  },
-];
 
-export const workExperience = [
-  {
-    id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
-  },
-  {
-    id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp2.svg",
-  },
-  {
-    id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
-  },
-  {
-    id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
-  },
-];
 
-export const socialMedia = [
-  {
-    id: 1,
-    img: "/git.svg",
-  },
-  {
-    id: 2,
-    img: "/twit.svg",
-  },
-  {
-    id: 3,
-    img: "/link.svg",
-  },
-];
+export const techSkills = [
+  { text: "ReactJs" },
+  { text: "NextJS" },
+  { text: "ExpressJS" },
+  { text: "Javascript" },
+  { text: "MongoDB" },
+  { text: "Python" },
+  { text: "C" },
+  { text: "Framer Motion" },
+  { text: "TailwindCSS" },
+  { text: "CSS" },
+  { text: "HTML" },
+  { text: "Flask" },
+  { text: "SQL" },
+  { text: "Data Structures" },
+  { text: "Rest APIs" },
+  { text: "Git" },
+]
+
+export const softSkills = [
+  { text: "Time Management" },
+  { text: "Critical Thinking" },
+  { text: "Problem Solving" },
+  { text: "Patience" },
+  { text: "Open Mindedness" },
+  { text: "Teamwork" },
+  { text: "Collaboration" },
+  { text: "Adaptability" },
+  { text: "Persistence" },
+  { text: "Self Learning" },
+  { text: "Motivated" },
+  { text: "Organized" },
+  { text: "Coordinated" },
+]

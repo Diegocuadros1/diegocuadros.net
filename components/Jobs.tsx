@@ -15,13 +15,25 @@ const Jobs = () => {
         Jobs I <span className="text-purple">Work On</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
-        <Card href="/cohost" description="Cohosting for an Airbnb host so that the host doesn't need to worry about managing their own Airbnb" title="Airbnb Cohosting" icon={<FrontIcon name="Airbnb Cohosting" icon={<FaHouseFlag />}/>}>
+        <Card
+          href="/cohost"
+          description="Cohosting for an Airbnb host so that the host doesn't need to worry about managing their own Airbnb"
+          title="Airbnb Cohosting"
+          icon={<FrontIcon name="Airbnb Cohosting" icon={<FaHouseFlag />} />}
+        >
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-emerald-900"
           />
         </Card>
-        <Card href="/webdev" description="I will help you build your dream website or app and manage it for you" title="Website Development" icon={<FrontIcon name="Website Development" icon={<MdOutlineDraw />}/>}>
+        <Card
+          href="/webdevelopment"
+          description="I will help you build your dream website or app and manage it for you"
+          title="Website Development"
+          icon={
+            <FrontIcon name="Website Development" icon={<MdOutlineDraw />} />
+          }
+        >
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-sky-600"
@@ -32,7 +44,7 @@ const Jobs = () => {
       </div>
     </section>
   );
-}
+};
 
 const Card = ({
   title,
@@ -78,32 +90,36 @@ const Card = ({
         <h2 className="text-center dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
           {title}
         </h2>
-        <h2 
-          style={{color: '#e4ecff'}}
-          className="dark:text-white text-sm opacity-0 text-center group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200"
+        <h2
+          style={{ color: "#e4ecff" }}
+          className="dark:text-white text-xs md:text-sm opacity-0 text-center group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200"
         >
           {description}
-          <br/>
+          <br />
+          <br />
           <a href={href}>
             <MagicButton
               title="Learn More"
-              icon={<FaArrowRight />} 
+              icon={<FaArrowRight />}
               position="right"
               extraClasses="w-[40px]"
             />
           </a>
         </h2>
-        
-
       </div>
     </div>
   );
 };
 
-const FrontIcon = ({ name, icon, }: {name: string, icon: React.ReactNode,}) => {
+const FrontIcon = ({ name, icon }: { name: string; icon: React.ReactNode }) => {
   return (
     <div className="mx-10 md:mx-0">
-      <MagicButton otherClasses="cursor-default font-bold text-[21px] p-10" title={name} icon={icon} position="right"/>
+      <MagicButton
+        otherClasses="cursor-default font-bold text-[21px] p-10"
+        title={name}
+        icon={icon}
+        position="right"
+      />
     </div>
   );
 };
@@ -124,4 +140,4 @@ export const Icon = ({ className, ...rest }: any) => {
   );
 };
 
-export default Jobs
+export default Jobs;

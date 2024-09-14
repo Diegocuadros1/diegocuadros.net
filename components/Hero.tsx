@@ -1,9 +1,10 @@
 import React from "react";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import Image from 'next/image';
+import Image from "next/image";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -29,38 +30,55 @@ const Hero = () => {
         <div className="flex justify-center relative my-20 z-10 w-full">
           <div className="w-12 h-11 flex-row flex-1 justify-end items-start hidden md:flex">
             <div className="flex flex-col justify-end items-start mb-32">
-              <Image
-                className="py-5 ml-52 animate-scale-in-center delay-1000"
-                src="/github.png"
-                alt="GithubLogo"
-                width={48}
-                height={48}
-                layout="fixed"
-              />
-              <Image
-                className="py-5 ml-28 animate-scale-in-center delay-1200"
-                src="/instagram.png"
-                alt="instagramLogo"
-                width={48}
-                height={48}
-                layout="fixed"
-              />
-              <Image
-                className="py-5 ml-14 animate-scale-in-center delay-1500"
-                src="/linkedin.png"
-                alt="linkedInLogo"
-                width={48}
-                height={48}
-                layout="fixed"
-              />
-              <Image
-                className="py-5 ml-8 animate-scale-in-center delay-1700"
-                src="/facebook.png"
-                alt="facebook"
-                width={48}
-                height={48}
-                layout="fixed"
-              />
+              <Link href="https://github.com/diegocuadros1" target="_blank">
+                <Image
+                  className="py-5 ml-52 animate-scale-in-center delay-1000"
+                  src="/github.svg"
+                  alt="GithubLogo"
+                  width={48}
+                  height={48}
+                  layout="fixed"
+                />
+              </Link>
+              <Link
+                href="https://instagram.com/diego.cuadros313"
+                target="_blank"
+              >
+                <Image
+                  className="py-5 ml-28 animate-scale-in-center delay-1200"
+                  src="/instagram.svg"
+                  alt="instagramLogo"
+                  width={48}
+                  height={48}
+                  layout="fixed"
+                />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/diego-cuadros-93a8b227b/"
+                target="_blank"
+              >
+                <Image
+                  className="py-5 ml-14 animate-scale-in-center delay-1500"
+                  src="/linkedin.svg"
+                  alt="linkedInLogo"
+                  width={48}
+                  height={48}
+                  layout="fixed"
+                />
+              </Link>
+              <Link
+                href="https://www.facebook.com/diego.cuadros.12979/"
+                target="_blank"
+              >
+                <Image
+                  className="py-5 ml-8 animate-scale-in-center delay-1700"
+                  src="/facebook.svg"
+                  alt="facebook"
+                  width={48}
+                  height={48}
+                  layout="fixed"
+                />
+              </Link>
             </div>
             <div className="flex-2 border-r-5 border-white items-center justify-center">
               <div className="w-full md:w-auto flex justify-center md:justify-start">
@@ -78,12 +96,12 @@ const Hero = () => {
           <div className=" h-60 max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center flex-2 mt-16">
             <h3 className="text-[75px] font-bold md:mr-96">Diego</h3>
             <h3 className="text-purple text-[75px] font-bold px-20">Cuadros</h3>
-            <TextGenerateEffect 
+            <TextGenerateEffect
               className="text-center text-small md:tracking-wider mb-4 md:text-large lg:text-2xl p-10 pb-0"
               words="Turning dreams into reality through programming and business"
             />
             <a href="#about">
-              <MagicButton 
+              <MagicButton
                 title="Get to know me"
                 icon={<FaLocationArrow />}
                 position="right"
