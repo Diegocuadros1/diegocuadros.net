@@ -82,7 +82,7 @@ export const projects = [
     id: 3,
     title: "Cuadocs",
     des: "Google Docs clone with authentication.",
-    img: "/cuadocs.png",
+    img: "/cuadocs.svg",
     iconLists: ["/re.svg", "/next.svg", "tail.svg"],
     link: "Cuadocs",
   },
