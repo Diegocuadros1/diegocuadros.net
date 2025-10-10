@@ -174,7 +174,7 @@ const Modal = ({ handleClose, id }) => {
                 handleClick={handleCopy}
               />
               <MagicButton
-                title={pdfOpen ? "Resume Opened" : "View my Resume"}
+                title={pdfOpen ? "Resume Downloaded" : "View my Resume"}
                 icon={<IoMdDownload />}
                 position="left"
                 handleClick={handleDownloadPDF}

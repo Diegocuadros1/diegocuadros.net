@@ -13,7 +13,7 @@ const RecentProjects = () => {
   const [modalOn, setModalOn] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
-  const open = (id) => {
+  const open = (id: any) => {
     console.log(`opening item for id ${id}`);
     setSelectedId(id);
     setModalOn(true);

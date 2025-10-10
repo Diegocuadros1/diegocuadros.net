@@ -1,7 +1,6 @@
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Homegrid from "@/components/Homegrid";
-import Jobs from "@/components/Jobs";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { navItems } from "@/data";
@@ -14,7 +13,6 @@ export default function Home() {
         <Hero />
         <Homegrid />
         <RecentProjects />
-        <Jobs />
         <Contact />
       </div>
     </main>

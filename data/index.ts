@@ -1,8 +1,7 @@
 export const navItems = [
   { name: "Home", link: "/" },
-  { name: "Projects", link: "/projects" },
-  { name: "Web Dev", link: "/webdevelopment" },
-  { name: "Cohosting", link: "/cohost" },
+  { name: "About", link: "#about" },
+  { name: "Projects", link: "#projects" },
 ];
 
 export const gridItems = [
@@ -36,16 +35,6 @@ export const gridItems = [
     titleClassName: "justify-center content-between",
     img: "",
     spareImg: "",
-  },
-  {
-    id: 4,
-    title: "Tech enthusiast with a passion for development.",
-    description: "",
-    className: "lg:col-span-2 md:col-span-1 md:row-span-2 cursor-pointer",
-    imgClassName: "",
-    titleClassName: "justify-center",
-    img: "/grid.svg",
-    spareImg: "/b4.svg",
   },
   {
     id: 5,

@@ -60,9 +60,6 @@ export const BentoGridItem = ({
   return (
     <>
       <motion.div
-        whileHover={{ scale: 1.1, zIndex: 10 }}
-        whileTap={{ scale: 0.9 }}
-        transition={{ duration: 0.01 }}
         className={cn(
           "row-span-1 relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
           className
@@ -75,7 +72,7 @@ export const BentoGridItem = ({
         onClick={() => (modalOn ? close() : open(id))}
       >
         {/* Box  */}
-        <div className={`${id === 6} && flex justify-start h-full`}>
+        <div className={`flex justify-start h-full`}>
           <div className="w-full h-full absolute">
             {img && (
               <Image
