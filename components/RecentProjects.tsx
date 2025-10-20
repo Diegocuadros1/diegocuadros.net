@@ -31,7 +31,7 @@ const RecentProjects = () => {
 
   return (
     <>
-      <div className="py-5">
+      <div className="py-5" id="projects">
         <h1 className="heading mt-10">
           A small selection of{" "}
           <span className="text-purple">recent projects</span>
@@ -100,23 +100,6 @@ const RecentProjects = () => {
           <Modal modalOn={modalOn} handleClose={close} id={selectedId} />
         )}
       </AnimatePresence>
-      <div className="flex w-full justify-end">
-        <Link href={"/projects"}>
-          <motion.div
-            className="flex flex-row"
-            whileHover={{
-              scale: 1.1,
-              textShadow: "0px 0px 8px rgb(255,255,255)",
-              transition: 0.5,
-            }}
-          >
-            <h1 className="text-[20px] text-purple font-semibold">
-              View More Projects Here
-            </h1>
-            <FaLocationArrow className="ml-3 text-purple mt-2" />
-          </motion.div>
-        </Link>
-      </div>
     </>
   );
 };

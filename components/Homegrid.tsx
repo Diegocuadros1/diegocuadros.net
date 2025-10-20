@@ -1,17 +1,22 @@
 "use client";
 
 import React, { useState } from "react";
-import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
-import { gridItems } from "@/data";
 import Image from "next/image";
 import { cn } from "@/utils/cn";
 import MagicButton from "./ui/MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 import { IoMdDownload } from "react-icons/io";
-import Modal from "./items/Modal";
+import {
+  TechStackModal,
+  SoftSkillsModal,
+  AboutMeModal,
+} from "./items/ModalItems";
 
 const Homegrid = () => {
-  const [modalOn, setModalOn] = useState(false);
+  const [techStackModal, setTechStackModal] = useState(false);
+  const [softSkillsModal, setSoftSkillsModal] = useState(false);
+  const [aboutMeModal, setAboutMeModal] = useState(false);
+
   const [pdfOpen, setPdfOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -57,7 +62,7 @@ const Homegrid = () => {
           </div>
           <div
             className={cn(
-              "relative md:h-full min-h-[30vh] flex flex-col p-5 lg:p-10 space-y-4 flex-grow "
+              "relative md:h-full min-h-[30vh] flex flex-col justify-between p-5 lg:p-10 space-y-4 flex-grow "
             )}
           >
             <h1 className="font-sans font-bold text-lg lg:text-2xl mb-30 transition duration-200 group-hover/bento:translate-x-2">
@@ -82,7 +87,7 @@ const Homegrid = () => {
         </div>
         {/* Tech Stack Card */}
         <div
-          onClick={() => setModalOn(true)}
+          onClick={() => setTechStackModal(true)}
           className="lg:col-span-2 md:col-span-1 lg:row-span-1 md:row-span-1 cursor-pointer relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col space-y-4 min-h-[10vh]"
         >
           <div
@@ -129,9 +134,16 @@ const Homegrid = () => {
             </div>
           </div>
         </div>
-        <TechStackModal open={modalOn} onClose={() => setModalOn(false)} />
-        {/* Tech Stack Card */}
-        <div className="lg:col-span-2 md:col-span-1 lg:row-span-1 md:row-span-1 cursor-pointer relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col space-y-4 min-h-[10vh]">
+        <TechStackModal
+          open={techStackModal}
+          onClose={() => setTechStackModal(false)}
+        />
+
+        {/* Soft Skills Stack Card */}
+        <div
+          onClick={() => setSoftSkillsModal(true)}
+          className="lg:col-span-2 md:col-span-1 lg:row-span-1 md:row-span-1 cursor-pointer relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col space-y-4 min-h-[10vh]"
+        >
           <div
             className={cn(
               "justify-end relative md:h-full min-h-20 flex flex-col p-5 lg:p-10 space-y-4 flex-grow "
@@ -180,9 +192,16 @@ const Homegrid = () => {
             </div>
           </div>
         </div>
+        <SoftSkillsModal
+          open={softSkillsModal}
+          onClose={() => setSoftSkillsModal(false)}
+        />
 
         {/* About Me Card */}
-        <div className="md:row-span-1 col-span-full cursor-pointer relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col space-y-4 min-h-[30vh]">
+        <div
+          onClick={() => setAboutMeModal(true)}
+          className="md:row-span-1 col-span-full cursor-pointer relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col space-y-4 min-h-[30vh]"
+        >
           <div className=" h-full absolute inset-y-0 right-0 w-1/2">
             <Image
               src="/about-me.svg"
@@ -203,23 +222,12 @@ const Homegrid = () => {
             </h1>
           </div>
         </div>
+        <AboutMeModal
+          open={aboutMeModal}
+          onClose={() => setAboutMeModal(false)}
+        />
       </div>
     </section>
-  );
-};
-type TechStackModalProps = {
-  open: boolean;
-  onClose: () => void;
-};
-
-const TechStackModal: React.FC<TechStackModalProps> = ({
-  open,
-  onClose,
-}: TechStackModalProps) => {
-  return (
-    <Modal open={open} onClose={onClose} title="Tech Stack">
-      <div>Hello!</div>
-    </Modal>
   );
 };
 
