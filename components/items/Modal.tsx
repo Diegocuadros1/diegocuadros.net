@@ -2,15 +2,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
-/**
- * Reusable Modal component
- * - Nearly full-screen, leaving a small rim of the page visible
- * - Children-based content
- * - ESC / overlay / button to close
- * - Scroll lock + focus return
- * - Smooth open animation
- */
-
 // items/ModalsAbout.tsx
 type ModalProps = {
   open: boolean;

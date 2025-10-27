@@ -6,16 +6,11 @@ import { cn } from "@/utils/cn";
 import MagicButton from "./ui/MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
 import { IoMdDownload } from "react-icons/io";
-import {
-  TechStackModal,
-  SoftSkillsModal,
-  AboutMeModal,
-} from "./items/ModalItems";
+import { TechStackModal, SoftSkillsModal } from "./items/ModalItems";
 
 const Homegrid = () => {
   const [techStackModal, setTechStackModal] = useState(false);
   const [softSkillsModal, setSoftSkillsModal] = useState(false);
-  const [aboutMeModal, setAboutMeModal] = useState(false);
 
   const [pdfOpen, setPdfOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -195,36 +190,6 @@ const Homegrid = () => {
         <SoftSkillsModal
           open={softSkillsModal}
           onClose={() => setSoftSkillsModal(false)}
-        />
-
-        {/* About Me Card */}
-        <div
-          onClick={() => setAboutMeModal(true)}
-          className="md:row-span-1 col-span-full cursor-pointer relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent flex flex-col space-y-4 min-h-[30vh]"
-        >
-          <div className=" h-full absolute inset-y-0 right-0 w-1/2">
-            <Image
-              src="/about-me.svg"
-              alt="about illustration"
-              fill
-              className={cn(
-                "absolute right-0 bottom-0 md:w-96 w-60 object-cover object-center"
-              )}
-            />
-          </div>
-          <div
-            className={cn(
-              "justify-center md:justify-start lg:justify-center relative md:h-full min-h-30 flex flex-col p-5 lg:p-10 space-y-4 flex-grow "
-            )}
-          >
-            <h1 className="font-sans font-bold text-lg lg:text-2xl mb-30 transition duration-200 group-hover/bento:translate-x-2">
-              Learn more about me
-            </h1>
-          </div>
-        </div>
-        <AboutMeModal
-          open={aboutMeModal}
-          onClose={() => setAboutMeModal(false)}
         />
       </div>
     </section>

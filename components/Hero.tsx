@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-10 pt-0 md:pt-36">
       <div>
         <Spotlight
           className="-top-40 -left-20 md:-left-32 md:-top-20 h-screen"
@@ -27,7 +27,58 @@ const Hero = () => {
       </div>
 
       <div className="flex-col md:flex-row w-full">
-        <div className="flex justify-center relative my-20 z-10 w-full">
+        <div className="flex justify-center relative my-20 z-10 w-full flex-col md:flex-row">
+          {/* Phone version */}
+          <div className="md:hidden flex flex-row justify-between items-start p-10 mb-[100px] h-[10px]">
+            <Link href="https://github.com/diegocuadros1" target="_blank">
+              <Image
+                className="py-5 mt-10 animate-scale-in-center delay-1000"
+                src="/github.svg"
+                alt="GithubLogo"
+                width={48}
+                height={48}
+                layout="fixed"
+              />
+            </Link>
+            <Link href="https://instagram.com/diego.cuadros313" target="_blank">
+              <Image
+                className="py-5 animate-scale-in-center delay-1200"
+                src="/instagram.svg"
+                alt="instagramLogo"
+                width={48}
+                height={48}
+                layout="fixed"
+              />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/diego-cuadros-93a8b227b/"
+              target="_blank"
+            >
+              <Image
+                className="py-5 animate-scale-in-center delay-1500"
+                src="/linkedin.svg"
+                alt="linkedInLogo"
+                width={48}
+                height={48}
+                layout="fixed"
+              />
+            </Link>
+            <Link
+              href="https://www.facebook.com/diego.cuadros.12979/"
+              target="_blank"
+            >
+              <Image
+                className="py-5 mt-10 animate-scale-in-center delay-1700"
+                src="/facebook.svg"
+                alt="facebook"
+                width={48}
+                height={48}
+                layout="fixed"
+              />
+            </Link>
+          </div>
+          {/* Computer Version */}
+
           <div className="w-12 h-11 flex-row flex-1 justify-end items-start hidden md:flex">
             <div className="flex flex-col justify-end items-start mb-32">
               <Link href="https://github.com/diegocuadros1" target="_blank">
@@ -93,7 +144,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className=" h-60 max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center flex-2 mt-16">
+          <div className=" h-60 max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center flex-2 mt-20 ml-6">
             <h3 className="text-[75px] font-bold md:mr-96">Diego</h3>
             <h3 className="text-purple text-[75px] font-bold px-20">Cuadros</h3>
             <TextGenerateEffect

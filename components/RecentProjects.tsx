@@ -4,30 +4,21 @@ import React, { useState } from "react";
 import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
-import Modal from "./items/ModalsProjects";
-import Link from "next/link";
 import Image from "next/image";
+import { projectDescriptions } from "@/data/index";
+import { ProjectsModal } from "./items/ModalItems";
+
+type ProjectInfo = {
+  title: string;
+  subtitle: string;
+  image_url: string;
+  url: string;
+  description: React.ReactNode;
+};
 
 const RecentProjects = () => {
   const [modalOn, setModalOn] = useState(false);
-  const [selectedId, setSelectedId] = useState(null);
-
-  const open = (id: any) => {
-    console.log(`opening item for id ${id}`);
-    setSelectedId(id);
-    setModalOn(true);
-  };
-
-  const close = () => {
-    console.log(`closing item`);
-    setSelectedId(null);
-    setModalOn(false);
-  };
-
-  const filteredProjects = projects
-    .filter((project) => project.id >= 1 && project.id <= 4)
-    .slice(0, 4);
+  const [projectInfo, setProjectInfo] = useState<ProjectInfo | null>(null);
 
   return (
     <>
@@ -37,11 +28,19 @@ const RecentProjects = () => {
           <span className="text-purple">recent projects</span>
         </h1>
         <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
-          {filteredProjects.map(({ id, title, des, img, iconLists, link }) => (
+          {projects.map(({ id, title, des, img, iconLists, link }) => (
             <div
               key={id}
               className="h-[32rem] sm:h-[41rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
-              onClick={() => (modalOn ? close() : open(id))}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const info = projectDescriptions[id];
+                if (info) {
+                  setProjectInfo(info);
+                  setModalOn(true);
+                }
+              }}
             >
               <PinContainer title={link} href={link}>
                 <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
@@ -95,11 +94,21 @@ const RecentProjects = () => {
           ))}
         </div>
       </div>
-      <AnimatePresence initial={false} onExitComplete={() => null}>
-        {modalOn && selectedId && (
-          <Modal modalOn={modalOn} handleClose={close} id={selectedId} />
-        )}
-      </AnimatePresence>
+      <ProjectsModal
+        open={modalOn}
+        onClose={() => setModalOn(false)}
+        info={
+          projectInfo
+            ? projectInfo
+            : {
+                title: "",
+                subtitle: "",
+                image_url: "",
+                url: "",
+                description: () => <>Nothing found</>,
+              }
+        }
+      />
     </>
   );
 };
